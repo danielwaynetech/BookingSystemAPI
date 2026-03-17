@@ -60,7 +60,7 @@ namespace BookingSystemAPI.API.Controllers
         /// <response code="400">Invalid booking request</response>
         /// <response code="404">Booking request not found</response>
         /// <response code="500">Error</response>
-        [HttpPost("update")]
+        [HttpPut("update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -98,7 +98,7 @@ namespace BookingSystemAPI.API.Controllers
         /// <response code="200">Booking request deleted successfully</response>
         /// <response code="404">Booking request not found</response>
         /// <response code="500">Error</response>
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
