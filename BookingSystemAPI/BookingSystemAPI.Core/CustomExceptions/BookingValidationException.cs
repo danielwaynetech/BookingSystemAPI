@@ -6,7 +6,7 @@ namespace BookingSystemAPI.Core.CustomExceptions
 {
     public class BookingValidationException : Exception
     {
-        public ValidationException(string message)
+        public BookingValidationException(string message)
             : base(message)
         {
         }

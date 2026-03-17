@@ -15,7 +15,7 @@ namespace BookingSystemAPI.Infrastructure
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
-        public Task<BookingModel> AddBookingAsync(CreateBookingRequestModel createBooking)
+        public async Task<BookingModel> AddBookingAsync(CreateBookingRequestModel createBooking)
         {
             var newBooking = new BookingModel
             {
@@ -33,9 +33,9 @@ namespace BookingSystemAPI.Infrastructure
             return newBooking;
         }
 
-        public Task<BookingModel> UpdateBookingAsync(UpdateBookingRequestModel updateBooking)
+        public async Task<BookingModel> UpdateBookingAsync(UpdateBookingRequestModel updateBooking)
         {
-            var existingBooking = _repository.Bookings.FirstOrDefault(updateBooking.Id)
+            var existingBooking = _repository.Bookings.FirstOrDefault(b => b.Id == updateBooking.Id)
                 ?? throw new BookingNotFoundException(updateBooking.Id);
 
             existingBooking.BookTitle = updateBooking.BookTitle;
@@ -50,9 +50,9 @@ namespace BookingSystemAPI.Infrastructure
             return existingBooking;
         }
 
-        public Task<BookingModel> DeleteBookingAsync(DeleteBookingRequestModel deleteBooking)
+        public async Task<BookingModel> DeleteBookingAsync(DeleteBookingRequestModel deleteBooking)
         {
-            var existingBooking = _repository.Bookings.FirstOrDefault(deleteBooking.Id)
+            var existingBooking = _repository.Bookings.FirstOrDefault(b => b.Id == deleteBooking.Id)
                 ?? throw new BookingNotFoundException(deleteBooking.Id);
 
             if (!existingBooking.IsDeleted)

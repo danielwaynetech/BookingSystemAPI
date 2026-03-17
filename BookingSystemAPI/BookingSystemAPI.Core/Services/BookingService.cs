@@ -26,7 +26,7 @@ namespace BookingSystemAPI.Core.Services
 
         public async Task<BookingModel> UpdateBookingAsync(UpdateBookingRequestModel updateBooking)
         {
-            ValidateUpdateBookingRequest(updateBookingRequest);
+            ValidateUpdateBookingRequest(updateBooking);
 
             return await _repository.UpdateBookingAsync(updateBooking);
         }
@@ -47,9 +47,9 @@ namespace BookingSystemAPI.Core.Services
             {
                 throw new BookingValidationException("Author is required.");
             }
-            if (string.IsNullOrWhiteSpace(createBooking.Title))
+            if (string.IsNullOrWhiteSpace(createBooking.BookTitle))
             {
-                throw new BookingValidationException("Title is required.");
+                throw new BookingValidationException("Book Title is required.");
             }
             if (createBooking.HolidayEndDate < createBooking.HolidayStartDate)
             {
@@ -63,9 +63,9 @@ namespace BookingSystemAPI.Core.Services
             {
                 throw new BookingValidationException("Author is required.");
             }
-            if (string.IsNullOrWhiteSpace(updateBooking.Title))
+            if (string.IsNullOrWhiteSpace(updateBooking.BookTitle))
             {
-                throw new BookingValidationException("Title is required.");
+                throw new BookingValidationException("Book Title is required.");
             }
             if (updateBooking.HolidayEndDate < updateBooking.HolidayStartDate)
             {
