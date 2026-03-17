@@ -21,7 +21,6 @@ namespace BookingSystemAPI.Core.Models
         [Required]
         [StringLength(255)]
         public string Author { get; set; } = string.Empty;
-        public DateTime BookingDate { get; set; }
         public DateTime HolidayStartDate { get; set; }
         public DateTime HolidayEndDate { get; set; }
         public bool IsDeleted { get; set; } = false;

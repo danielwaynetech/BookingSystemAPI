@@ -58,6 +58,8 @@ namespace BookingSystemAPI.Infrastructure
             if (!existingBooking.IsDeleted)
             {
                 existingBooking.IsDeleted = true;
+                existingBooking.UpdatedAt = DateTime.UtcNow;
+                existingBooking.DeletedAt = DateTime.UtcNow;
 
                 _repository.Bookings.Update(existingBooking);
                 _repository.SaveChanges();
