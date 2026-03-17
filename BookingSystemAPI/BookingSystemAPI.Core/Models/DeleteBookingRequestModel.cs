@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BookingSystemAPI.Core.Models
 {
     public class DeleteBookingRequestModel
     {
+        [Required]
         public Guid Id { get; set; }
     }
 }
