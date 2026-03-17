@@ -44,4 +44,4 @@ delete
 ## Testing Endpoints
 
 Once the API is running, the endpoints will be testable at https://localhost:7258/scalar/
-
+A sample request body is available below the 'Test Request' button at each endpoint.
